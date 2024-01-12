@@ -16,10 +16,21 @@ def add():
 def subtract():
     num1 = request.args.get('num1', default=0, type=int)
     num2 = request.args.get('num2', default=0, type=int)
+    #fix
 
     result = num1 - num2
     return jsonify({"result": result})
-# comment 
+
+
+@app.route('/divide', methods=['GET'])
+def divide():
+    num1 = request.args.get('num1', default=1, type=int)
+    num2 = request.args.get('num2', default=1, type=int)
+    if num2 == 0:
+        return jsonify({"error": "Cannot divide by zero"}), 400
+    result = num1 / num2
+    return jsonify({"result": result})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
