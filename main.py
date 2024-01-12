@@ -32,5 +32,13 @@ def divide():
     return jsonify({"result": result})
 
 
+@app.route('/multiply', methods=['GET'])
+def multiply():
+    num1 = request.args.get('num1', default=0, type=int)
+    num2 = request.args.get('num2', default=0, type=int)
+    result = num1 * num2
+    return jsonify({"result": result})
+
+
 if __name__ == '__main__':
     app.run(debug=True)
