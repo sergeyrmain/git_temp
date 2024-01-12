@@ -40,5 +40,8 @@ def multiply():
     return jsonify({"result": result})
 
 
+#sergey
+
+
 if __name__ == '__main__':
     app.run(debug=True)
